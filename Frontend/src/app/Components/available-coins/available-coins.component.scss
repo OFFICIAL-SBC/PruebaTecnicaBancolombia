@@ -1,0 +1,64 @@
+@import "../../../variables.scss";
+
+.monedas-container {
+    width: 80%;
+    margin: auto;
+  
+    h2 {
+      font-weight: 600;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: $title-color;
+      padding-block-end: 1.5rem;
+      border-block-end: 1px solid #DEDEDE;
+    }
+  
+    .monedas-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr 3fr 2fr 2fr;
+      background-color: #f5f5f5;
+      margin-block-start: 3rem;
+      height: 6rem;
+      border-bottom: 2px solid #ddd;
+      font-family: sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      justify-items:flex-start;
+      align-items: center;
+
+      div{
+        padding-inline-start: 3rem;
+
+        @media (max-width: 850px) {
+            padding-inline-start: 1.6rem;
+        }
+      }
+
+    }
+  
+    .monedas-list {
+      .moneda-item {
+        display: grid;
+        grid-template-columns: 1fr 2fr 3fr 2fr 2fr;
+        border-bottom: 1px solid #ddd;
+        height: 5rem;
+        font-family: sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        justify-items:flex-start;
+        align-items: center;
+
+        div{
+          padding-inline-start: 3rem;
+          @media (max-width: 850px) {
+            padding-inline-start: 1.6rem;
+        }
+        }
+  
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
+    }
+  }
+

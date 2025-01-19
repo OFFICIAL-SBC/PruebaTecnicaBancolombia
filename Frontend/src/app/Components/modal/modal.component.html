@@ -1,0 +1,18 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal">
+  <button class="close-button" (click)="closeModal()">×</button>
+  <div class="modal-main-container">
+    <h2>Listado de monedas</h2>
+    <div class="modal-content">
+      <select id="moneda">
+        <option>Opción 1</option>
+        <option>Opción 2</option>
+        <option>Opción 3</option>
+      </select>
+    </div>
+  </div>
+  <div class="modal-actions">
+    <button class="btn btn-save" (click)="save()">Guardar</button>
+    <button class="btn btn-cancel" (click)="closeModal()">Cancelar</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<header>
+  <nav>
+    <ul>
+      <li><a [routerLink]="['/login']" routerLinkActive="active">login</a></li>
+      <li><a [routerLink]="['./mycoins']" routerLinkActive="active">My Coins</a></li>
+      <li><a [routerLink]="['./available']"routerLinkActive="active">Available Coins</a></li>
+    </ul>
+  </nav>
+</header>
+<main class="content">
+  <router-outlet></router-outlet>
+</main>
