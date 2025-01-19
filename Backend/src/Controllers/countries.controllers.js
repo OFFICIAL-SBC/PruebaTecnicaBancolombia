@@ -1,9 +1,6 @@
-import { Request, Response, query } from "express";
-const router = express.Router();
-const localStorage = require('../localStorage');
+const localStorage = require('../localstorage');
 
-// Obtener todas las gestoras activas en un país
-export const getCountryManagers = (req, res) => {
+const getCountryManagers = (req, res) => {
 
     const countryId = parseInt(req.params.countryId, 10);
     const countries = localStorage.get('countries');
@@ -15,3 +12,5 @@ export const getCountryManagers = (req, res) => {
 
     res.json({ managers: country.managers });
 };
+
+module.exports = { getCountryManagers };

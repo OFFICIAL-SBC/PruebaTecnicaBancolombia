@@ -1,14 +1,9 @@
-import { Router } from "express";
-const auth = require('../middleware/auth');
+const express = require('express');
+const authenticate = require('../middleware/auth');
+const { getCountryManagers } = require('../Controllers/countries.controllers');
 
-import {
-    getCountryManagers,
+const router = express.Router();
 
-} from "../Controllers/countries.controllers";
+router.get('/:countryId/managers', authenticate, getCountryManagers);
 
-const router = Router();
-
-router.get('/:countryId/managers', auth, getCountryManagers);
-
-
-export default router;
+module.exports = router;

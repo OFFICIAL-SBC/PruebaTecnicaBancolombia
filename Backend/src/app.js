@@ -1,23 +1,26 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
-const { routesAuth } = require('./routes/login.routes');
-const { routesCountries } = require('/routes/countries.routes');
+const routesLogin = require('./routes/login.routes');
+const routesCountries = require('./routes/countries.routes');
 
-require('dotenv').config();
+require('dotenv').config({ path: '../.env' });
 
 const app = express();
 
 // Middlewares
 app.use(cors());
-app.use(bodyParser.json());
+// Middleware para procesar JSON (no necesitas bodyParser.json() si usas express.json())
+app.use(express.json());
+
+// Middleware para procesar datos x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use('/auth', routesAuth);
+app.use('/login', routesLogin);
 app.use('/countries', routesCountries);
 // app.use('/users', require('./routes/users'));
 // app.use('/currencies', require('./routes/currencies'));
 
 // Server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

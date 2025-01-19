@@ -1,14 +1,9 @@
-const Router = require('express');
-const authenticate = require('./middleware/auth');
-console.log("auth", authenticate);
+const express = require('express');
+const authenticate = require('../middleware/auth');
+const { postUserLogged } = require('../Controllers/login.controller');
 
-import {
-    postUserLogged,
-} from "../Controllers/login.controller";
-
-const router = Router();
+const router = express.Router();
 
 router.post('/login', authenticate, postUserLogged);
 
-
-export default router;
+module.exports = router;
