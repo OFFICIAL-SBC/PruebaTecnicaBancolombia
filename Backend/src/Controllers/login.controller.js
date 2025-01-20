@@ -1,9 +1,8 @@
-const { Request, Response, query } = require('express');
 const jwt = require('jsonwebtoken');
 
 const users = [
   { id: 1, username: 'admin', password: 'admin' },
-  { id: 2, username: 'user', password: 'password' },
+  { id: 2, username: 'user', password: 'user' },
 ];
 
 const postUserLogged = (req, res) => {
@@ -17,7 +16,7 @@ const postUserLogged = (req, res) => {
 
   if (user) {
     const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { algorithm: 'HS256', expiresIn: '1h' });
-    res.json({ token });
+    res.json({ token, username: user.username });
   } else {
     res.status(401).json({ error: 'Invalid credentials' });
   }

@@ -4,6 +4,30 @@
     width: 80%;
     margin: auto;
     text-align: center;
+
+    .saludo-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      padding-block: 1rem;
+      border-block-end: 1px solid #DEDEDE;
+
+      h2 {
+        font-weight: 600;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: $title-color;
+      }
+
+      h3{
+        font-weight: 400;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: $title-color;
+      }
+    }
+
   
     .title-container{
 
@@ -13,7 +37,7 @@
       padding-block: 1rem;
       border-block-end: 1px solid #DEDEDE;
 
-      h2 {
+      h1 {
         font-weight: 600;
         font-size: 2rem;
         margin-bottom: 1rem;
@@ -87,7 +111,7 @@
           gap: 0.5rem;
   
           .editar {
-            background-color: #4caf50;
+            background-color: $green-color;
             color: white;
             border: none;
             padding: 0.3rem 0.6rem;
@@ -100,7 +124,7 @@
           }
   
           .eliminar {
-            background-color: #f44336;
+            background-color: $orange-color;
             color: white;
             border: none;
             padding: 0.3rem 0.6rem;

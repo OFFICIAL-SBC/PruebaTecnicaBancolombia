@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
-// import { MonedasService } from './monedas.service';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-my-coins',
@@ -11,14 +11,43 @@ import { CommonModule } from '@angular/common';
   styleUrl: './my-coins.component.scss'
 })
 export class MyCoinsComponent{
-  monedas: any[] = []; // Inicializa la lista vacía
   isModalOpen = false;
+  coins: any[] = [];
+  countryName: string = "";
+  userName: string =  "";
 
-  // constructor(private monedasService: MonedasService) {}
+  constructor(private userService: UserService) {
+    this.userName = localStorage.getItem('username')?.toString() || "";
+  }
 
-  // ngOnInit(): void {
-  //   this.cargarMonedas();
-  // }
+  ngOnInit(): void {
+    this.getCoins();
+    this.getCountryName();
+  }
+
+  getCoins(): void {
+    this.userService.s_getCoinsUser(this.userName)
+      .subscribe(
+        (data: any) => {
+          this.coins = data.coins;
+        },
+        (error: any) => {
+          console.error(`Error fetching user's coins:`, error);
+        }
+      );
+  }
+
+  getCountryName(): void {
+    this.userService.s_getCountryNameByUser(this.userName)
+      .subscribe(
+        (data: any) => {
+          this.countryName = data.country;
+        },
+        (error: any) => {
+          console.error('Error fetching country name:', error);
+        }
+      );
+  }
 
   // cargarMonedas() {
   //   this.monedasService.getMonedas().subscribe((data) => {
@@ -51,7 +80,7 @@ export class MyCoinsComponent{
   }
 
   handleSave() {
-    console.log('Guardando cambios...');
+    this.getCoins();
     this.closeModal();
   }
 

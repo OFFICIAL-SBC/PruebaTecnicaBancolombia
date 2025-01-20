@@ -4,6 +4,7 @@ const { postUserLogged } = require('../Controllers/login.controller');
 
 const router = express.Router();
 
-router.post('/login', authenticate, postUserLogged);
+router.post('/login', postUserLogged);
+
 
 module.exports = router;
