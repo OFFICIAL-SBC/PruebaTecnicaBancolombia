@@ -3,7 +3,6 @@ const localStorage = require('../localstorage');
 const getUserCoins = (req, res) => {
 
     const username = req.user.username;
-    console.log(username);
     const users = localStorage.get('users');
     const user = users.find((u) => u.name === username);
     const currencies = localStorage.get('currencies').filter((c) => user.associatedCurrencies.includes(c.id));

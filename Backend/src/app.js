@@ -6,7 +6,6 @@ const routesCountry = require('./routes/country.routes');
 
 require('dotenv').config();
 
-console.log(process.env.JWT_SECRET);
 
 const app = express();
 
