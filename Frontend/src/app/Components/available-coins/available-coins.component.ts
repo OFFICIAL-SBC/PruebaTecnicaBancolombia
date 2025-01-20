@@ -13,6 +13,7 @@ export class AvailableCoinsComponent {
 
   coins: any[] = [];
   countryName: string = "";
+  managers: any[] = [];
 
     constructor(private countryService: CountryService) {
       this.countryName = localStorage.getItem('country')?.toString() || "";
@@ -28,6 +29,7 @@ export class AvailableCoinsComponent {
       .subscribe(
         (data: any) => {
           this.coins = data.coins;
+          this.managers = data.managers;
         },
         (error: any) => {
           console.error('Error fetching coins:', error);
