@@ -9,11 +9,11 @@
     </div>
     
     <div class="monedas-list">
-      <div class="moneda-item">
-        <div>Id</div>
-        <div>Simbolo</div>
-        <div>nombre</div>
-        <div>tasaCambio</div>
+      <div class="moneda-item" *ngFor="let coin of coins">
+        <div>{{coin.id}}</div>
+        <div>{{coin.symbol}}</div>
+        <div>{{coin.name}}</div>
+        <div>{{coin.valueInDollars}}</div>
       </div>
     </div>
   </section>

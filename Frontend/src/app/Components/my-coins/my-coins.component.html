@@ -1,6 +1,11 @@
 <section class="monedas-container">
+    <div class="saludo-container">
+        <h2>Saludos {{userName}}</h2>
+        <h3>Hoy es un bello dia en {{countryName}}</h3>
+    </div>
+
     <div class="title-container">
-      <h2>Mis monedas</h2>
+      <h1>Mis monedas</h1>
       <button class="agregar-moneda" (click)="agregarMoneda()">AGREGAR MONEDA</button>
     </div>
   
@@ -13,11 +18,11 @@
     </div>
     
     <div class="monedas-list">
-      <div class="moneda-item">
-        <div>Id</div>
-        <div>Simbolo</div>
-        <div>nombre</div>
-        <div>tasaCambio</div>
+      <div class="moneda-item" *ngFor="let coin of coins">
+        <div>{{ coin.id }}</div>
+        <div>{{ coin.symbol }}</div>
+        <div>{{ coin.name }}</div>
+        <div>{{ coin.valueInDollars }}</div>
         <div class="acciones">
           <button class="editar" (click)="editarMoneda(1)">✏️</button>
           <button class="eliminar" (click)="eliminarMoneda(1)">🗑️</button>

@@ -1,9 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const routesLogin = require('./routes/login.routes');
-const routesCountries = require('./routes/countries.routes');
+const routesUser = require('./routes/user.routes');
+const routesCountry = require('./routes/country.routes');
 
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config();
+
+console.log(process.env.JWT_SECRET);
 
 const app = express();
 
@@ -17,10 +20,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/login', routesLogin);
-app.use('/countries', routesCountries);
+app.use('/user', routesUser);
+app.use('/country', routesCountry);
 // app.use('/users', require('./routes/users'));
 // app.use('/currencies', require('./routes/currencies'));
 
 // Server
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -1,13 +1,13 @@
 let storage = {
   users: [
-    { id: 1, name: 'John Doe', countryId: 1, associatedCurrencies: [1, 2] },
-    { id: 2, name: 'Jane Smith', countryId: 2, associatedCurrencies: [3] },
+    { id: 1, name: 'admin', countryId: 1, associatedCurrencies: [1, 2] },
+    { id: 2, name: 'user', countryId: 2, associatedCurrencies: [3] },
   ],
   countries: [
     {
       id: 1,
       name: 'USA',
-      allowedCurrencies: [1, 2],
+      allowedCurrencies: [1, 2, 5],
       managers: ['Manager1', 'Manager2'], // Gestoras activas
     },
     {
@@ -21,5 +21,21 @@ let storage = {
     { id: 1, name: 'Bitcoin', symbol: 'BTC', valueInDollars: 42000 },
     { id: 2, name: 'Ethereum', symbol: 'ETH', valueInDollars: 3200 },
     { id: 3, name: 'Solana', symbol: 'SOL', valueInDollars: 20 },
+    { id: 4, name: 'CrytoPeso', symbol: 'COL', valueInDollars: 200 },
+    { id: 5, name: 'CryptoDollar', symbol: 'CRD', valueInDollars: 1235 },
   ],
 };
+
+const get = (key) => {
+  return storage[key];
+};
+
+const set = (key, value) => {
+  storage[key] = value;
+};
+
+const findUserByName = (username) => {
+  return storage.users.find(user => user.name === username);
+};
+
+module.exports = { get, set, findUserByName };
